@@ -1,20 +1,131 @@
-*{
+:root {
+    --primary: #18181b;
+    --secondary: #27272a;
+    --accent: #6366f1;
+    --border: #3f3f46;
+    --radius: 14px;
+    --shadow: 0 4px 24px 0 rgba(0,0,0,0.10);
+    --text: #f4f4f5;
+    --muted: #a1a1aa;
+}
+
+* {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
 }
-body{
-    background-color: #111111;
+
+body {
+    background: var(--primary);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+header {
+    max-width: 1200px;
+    margin: 32px auto 0 auto;
+    padding: 24px 32px;
+    background: var(--secondary);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--border);
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 1px;
+}
+
+nav {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.link {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 8px 18px;
+    border-radius: 8px;
+    transition: background 0.15s, color 0.15s;
+    font-weight: 500;
+}
+.link:hover, .link:focus {
+    background: var(--accent);
     color: #fff;
 }
-header{
+
+main {
+    display: flex;
+    gap: 32px;
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    border-bottom: 1px solid #333;
-    justify-content: space-between;
+    margin: 32px auto;
 }
-header h1{
-    font-size: 19px;
-    color: orangered;
+
+.content {
+    flex: 1 1 0;
+    background: var(--secondary);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    padding: 32px;
+}
+
+.content h2 {
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+    color: var(--accent);
+}
+
+.content ul {
+    margin: 18px 0 18px 20px;
+    color: var(--muted);
+}
+
+.content p {
+    margin-bottom: 12px;
+    color: var(--text);
+}
+
+aside {
+    min-width: 220px;
+    background: var(--secondary);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    padding: 24px;
+    color: var(--muted);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+@media (max-width: 900px) {
+    main {
+        flex-direction: column;
+        gap: 18px;
+    }
+    aside {
+        min-width: unset;
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 728px) {
+    header, main {
+        max-width: 98vw;
+        padding: 0 4em;
+    }
+    nav {
+        display: none;
+    }
 }
